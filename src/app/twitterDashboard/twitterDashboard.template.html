@@ -1,19 +1,4 @@
-<button class="btn btn-default" data-ng-if="!vm.isShow">
-    <span class="glyphicon glyphicon-cog"></span>
-    Setting
-</button>
-
-<div data-ng-if="vm.isShow">
-    <button class="btn btn-default">
-        <span class="glyphicon glyphicon-ok"></span>
-        Confirm
-    </button>
-
-    <button class="btn btn-default">
-        <span class="glyphicon glyphicon-remove"></span>
-        Cancel
-    </button>
-</div>
-
-<br /><br />
-<data-twitter-card data-ng-repeat="screenName in vm.twitterCards" data-items="screenName.data"></data-twitter-card>
+<data-setting-panel data-save-setting="vm.reload()"></data-setting-panel>
+<data-twitter-card data-items="vm.twitterCards.AppDirect"></data-twitter-card>
+<data-twitter-card data-items="vm.twitterCards.laughingsquid"></data-twitter-card>
+<data-twitter-card data-items="vm.twitterCards.techcrunch"></data-twitter-card>

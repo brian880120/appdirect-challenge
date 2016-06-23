@@ -6,7 +6,7 @@
     function SettingPanelDirective() {
         return {
             scope: {
-                initialIsShow: '@isShow'
+                saveSetting: '&'
             },
             restrict: 'E',
             templateUrl: 'twitterDashboard/directives/settingPanel.template.html',

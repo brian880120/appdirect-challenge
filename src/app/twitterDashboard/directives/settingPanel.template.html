@@ -1,4 +1,36 @@
-<div class="input-group">
-    <span>Count</span>
-    <input type="text" class="form-control" data-ng-model="vm.count">
+<div data-ng-if="vm.isShow">
+    <div class="input-group">
+        <span>Count</span>
+        <input type="text" class="form-control" data-ng-model="vm.settings.count.AppDirect">
+    </div>
+
+
+    <div class="input-group">
+        <span>Count</span>
+        <input type="text" class="form-control" data-ng-model="vm.settings.count.laughingsquid">
+    </div>
+
+    <div class="input-group">
+        <span>Count</span>
+        <input type="text" class="form-control" data-ng-model="vm.settings.count.techcrunch">
+    </div>
 </div>
+
+<button class="btn btn-default" data-ng-if="!vm.isShow" data-ng-click="vm.enableSetting()">
+    <span class="glyphicon glyphicon-cog"></span>
+    Setting
+</button>
+
+<div data-ng-if="vm.isShow">
+    <button class="btn btn-default" data-ng-click="vm.confirmSetting()">
+        <span class="glyphicon glyphicon-ok"></span>
+        Confirm
+    </button>
+
+    <button class="btn btn-default" data-ng-click="vm.cancelSetting()">
+        <span class="glyphicon glyphicon-remove"></span>
+        Cancel
+    </button>
+</div>
+
+<br /><br />
