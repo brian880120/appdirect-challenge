@@ -1,0 +1,17 @@
+<div class="col-md-4">
+    <data-setting-panel></data-setting-panel>
+    <div class="well" data-ng-repeat="card in vm.items">
+        <div class="card-title" style="display: inline-flex">
+            <div>
+                <img class="img-rounded" data-ng-src="{{card.user.profile_image_url}}" style="margin-right: 26px">
+            </div>
+            <div>
+                <p class="card-text">{{vm.getCreatedTime(card.created_at)}}</p>
+                <a data-ng-href="{{vm.getTwitterLink(card.id_str)}}" class="card-text">Link To Twitter</a>
+            </div>
+        </div>
+        <div class="card-block">
+            <p class="card-text">{{card.text}}</p>
+        </div>
+    </div>
+</div>

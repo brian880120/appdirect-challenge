@@ -1,0 +1,28 @@
+{
+  "name": "appDirect-challenge",
+  "version": "0.0.0",
+  "authors": [
+    "brian880120 <bobriandai@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.6",
+    "angular-resource": "~1.5.7",
+    "angular-ui-router": "~1.0.0-alpha.5",
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.6.3",
+    "jquery": "~2.2.4",
+    "lodash": "~4.13.1",
+    "moment": "~2.13.0"
+  },
+  "devDependencies": {
+    "bootcards": "~1.1.2"
+  }
+}
