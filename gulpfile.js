@@ -26,6 +26,7 @@
     gulp.task('build:html:template', html.template.build);
     gulp.task('build:javascript:application', javascript.build.application);
     gulp.task('build:javascript:vendor', javascript.build.vendor);
+    gulp.task('build:stylesheet:application', stylesheet.build.application);
     gulp.task('build:stylesheet:vendor', stylesheet.build.vendor);
     gulp.task('build:fonts', fonts.build);
 
@@ -37,4 +38,5 @@
     gulp.task('server:watch:html:index', server.watch.html.index.task);
     gulp.task('server:watch:html:templates', server.watch.html.templates.task);
     gulp.task('server:watch:javascript:application', server.watch.javascript.application);
+    gulp.task('server:watch:stylesheets:application', server.watch.stylesheets.application);
 })();

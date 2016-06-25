@@ -11,7 +11,7 @@
         var vm = this;
         vm.getCreatedTime = getCreatedTime;
         vm.getTwitterLink = getTwitterLink;
-
+        vm.class = 'aliceblue';
         function getCreatedTime(rawTime) {
             return TwitterDashboardService.parseDate(rawTime).format('YYYY MM DD HH:mm:ss');
         }

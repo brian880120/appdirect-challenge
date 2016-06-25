@@ -21,6 +21,9 @@ module.exports = (function () {
             },
             javascript: {
                 application: watchJavascriptApplication
+            },
+            stylesheets: {
+                application: watchStylesheetsApplication
             }
         }
     };
@@ -62,7 +65,15 @@ module.exports = (function () {
                 batch (function (events, callback) {
                     gulp.start('server:watch:html:templates', callback);
                 })
-            )
+            );
+
+            watch (
+                'src/app/**/*.less',
+                batch (function (events, callback) {
+                    gulp.start('server:watch:stylesheets:application', callback);
+                })
+            );
+
             callback();
         };
     }
@@ -86,6 +97,14 @@ module.exports = (function () {
     function watchJavascriptApplication (callback) {
         runSequence(
             'build:javascript:application',
+            'server:reload',
+            callback
+        );
+    }
+
+    function watchStylesheetsApplication(callback) {
+        runSequence(
+            'build:stylesheet:application',
             'server:reload',
             callback
         );

@@ -12,7 +12,8 @@ module.exports = (function() {
 
     return {
         build: {
-            vendor: buildVendors
+            vendor: buildVendors,
+            application: buildApplication
         }
     };
 
@@ -20,6 +21,13 @@ module.exports = (function() {
         return gulp.src(source)
             .pipe($.concat('styles/libraries.css'))
             .pipe(cleanCss())
+            .pipe(gulp.dest('dist'));
+    }
+
+    function buildApplication() {
+        return gulp.src('src/app/**/*.less')
+            .pipe($.less())
+            .pipe($.concat('styles/application.css'))
             .pipe(gulp.dest('dist'));
     }
 })();

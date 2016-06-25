@@ -9,7 +9,7 @@
                 items: '='
             },
             restrict: 'E',
-            templateUrl: 'twitterDashboard/directives/twitterCard.template.html',
+            templateUrl: 'twitterDashboard/directives/twitterCard/twitterCard.template.html',
             controller: 'appDirect.twitterDashboard.TwitterCardController as vm',
             bindToController: true
         };

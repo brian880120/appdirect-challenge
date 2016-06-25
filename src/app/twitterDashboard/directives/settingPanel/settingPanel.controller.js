@@ -11,6 +11,12 @@
     function SettingPanelController($localStorage, TwitterDashboardService) {
         var vm = this;
 
+        vm.colors = [
+            'orange',
+            'aliceblue',
+            'darkgray'
+        ];
+
         vm.settings = TwitterDashboardService.initializeSetting();
         vm.types = _.keys(vm.settings.count);
         vm.dates = _.keys(vm.settings.date);

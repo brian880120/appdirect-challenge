@@ -23,7 +23,10 @@ module.exports = (function () {
 
     function build (callback) {
         runSequence (
-            'build:stylesheet:vendor',
+            [
+                'build:stylesheet:vendor',
+                'build:stylesheet:application'
+            ],
             [
                 'build:javascript:vendor',
                 'build:javascript:application'
