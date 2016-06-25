@@ -19,3 +19,29 @@
     border-style: groove;
     border-width: 0;
 }
+
+.grid {
+
+}
+
+.grid:after {
+      content: '';
+      display: block;
+      clear: both;
+}
+
+.grid-item {
+
+}
+
+.grid-item:hover {
+  border-color: hsla(0, 0%, 100%, 0.5);
+  cursor: move;
+}
+
+.packery-drop-placeholder {
+  outline: 3px dashed hsla(0, 0%, 0%, 0.5);
+  outline-offset: -6px;
+  -webkit-transition: -webkit-transform 0.2s;
+          transition: transform 0.2s;
+}
