@@ -10,10 +10,23 @@
 
     function SettingPanelController($localStorage, TwitterDashboardService) {
         var vm = this;
+
         vm.settings = TwitterDashboardService.initializeSetting();
+        vm.types = _.keys(vm.settings.count);
+        vm.dates = _.keys(vm.settings.date);
+
+        _.forEach(_.keys(vm.settings.date), function(date) {
+            vm.settings.date[date].value = moment(vm.settings.date[date].value);
+        });
+
+        vm.toggleDatePreferrence = toggleDatePreferrence;
         vm.enableSetting = enableSetting;
         vm.confirmSetting = confirmSetting;
         vm.cancelSetting = cancelSetting;
+
+        function toggleDatePreferrence() {
+            vm.settings.datePreferrence = !vm.settings.datePreferrence;
+        }
 
         function enableSetting() {
             vm.isShow = true;
@@ -29,5 +42,8 @@
             vm.isShow = false;
         }
 
+        vm.clean = function() {
+            TwitterDashboardService.clean();
+        };
     }
 }());

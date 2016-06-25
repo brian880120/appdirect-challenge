@@ -21,7 +21,7 @@ module.exports = (function () {
     }
 
     function buildTemplate() {
-        return gulp.src('src/app/**/*.html')
+        return gulp.src(['src/app/**/*.html', 'bower_components/angular-bootstrap-datetimepicker/src/**/*.html'])
             .pipe($.minifyHtml({
                 empty: true,
                 conditionals: true,
