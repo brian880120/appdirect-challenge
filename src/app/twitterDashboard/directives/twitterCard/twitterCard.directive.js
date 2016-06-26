@@ -6,7 +6,8 @@
     function TwitterCardDirective() {
         return {
             scope: {
-                items: '='
+                items: '=',
+                color: '@'
             },
             restrict: 'E',
             templateUrl: 'twitterDashboard/directives/twitterCard/twitterCard.template.html',

@@ -13,14 +13,13 @@
         function link(scope, element) {
             var packery = new Packery(element[0], {
                 itemSelector: '.grid-item',
-                percentPosition: true,
                 draggable: true
             });
+            console.log(element.children());
             _.forEach(element.children(), function(child) {
                 var draggabilly = new Draggabilly(child);
                 packery.bindDraggabillyEvents(draggabilly);
             });
         }
     }
-
 }());

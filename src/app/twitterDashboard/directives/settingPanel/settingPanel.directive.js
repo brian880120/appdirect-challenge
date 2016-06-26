@@ -6,6 +6,7 @@
     function SettingPanelDirective() {
         return {
             scope: {
+                settings: '=',
                 saveSetting: '&'
             },
             restrict: 'E',

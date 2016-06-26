@@ -15,11 +15,11 @@
         this.initializeSetting = initializeSetting;
         this.twitterTypes = TwitterDashboardConstant.BASIC_TYPES;
         this.getTwitterTypes = getTwitterTypes;
+        this.getColor = getColor;
         this.parseDate = parseDate;
         this.clean = clean;
 
         function clean() {
-            console.log('test');
             delete $localStorage.dashboardSetting;
         }
 
@@ -32,6 +32,14 @@
                 count = $localStorage.dashboardSetting.count[name];
             }
             return TwitterDashboardFactory.twitterResource(count, name).query().$promise;
+        }
+
+        function getColor() {
+            if ($localStorage && $localStorage.dashboardSetting && $localStorage.dashboardSetting.color) {
+                return $localStorage.dashboardSetting.color;
+            } else {
+                return 'orange';
+            }
         }
 
         function parseDate(rawTime) {
@@ -48,6 +56,7 @@
                         laughingsquid: 0,
                         techcrunch: 0
                     },
+                    color: 'orange',
                     datePreferrence: false,
                     date: {
                         startDate: {

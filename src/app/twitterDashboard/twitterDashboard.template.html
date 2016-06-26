@@ -1,12 +1,8 @@
-<data-setting-panel data-save-setting="vm.reload()"></data-setting-panel>
+<data-setting-panel data-save-setting="vm.reload()" data-settings="vm.settings"></data-setting-panel>
 <div class="row grid">
     <div class="grid-item" data-appdirect-drag>
-        <data-twitter-card data-items="vm.twitterCards.AppDirect"></data-twitter-card>
-    </div>
-    <div class="grid-item" data-appdirect-drag>
-        <data-twitter-card data-items="vm.twitterCards.laughingsquid"></data-twitter-card>
-    </div>
-    <div class="grid-item" data-appdirect-drag>
-        <data-twitter-card data-items="vm.twitterCards.techcrunch"></data-twitter-card>
+        <data-twitter-card data-items="vm.twitterCards.AppDirect" data-color="{{vm.settings.color}}"></data-twitter-card>
+        <data-twitter-card data-items="vm.twitterCards.laughingsquid" data-color="{{vm.settings.color}}"></data-twitter-card>
+        <data-twitter-card data-items="vm.twitterCards.techcrunch" data-color="{{vm.settings.color}}"></data-twitter-card>
     </div>
 </div>

@@ -4,7 +4,7 @@
             <div class="panel-body">
                 <span class="col-md-3" data-ng-repeat="type in vm.types">
                     <span>{{type}} count</span>
-                    <input type="text" class="form-control" data-ng-model="vm.settings.count[type]">
+                    <input type="text" class="form-control" data-ng-class="vm.settings.color" data-ng-model="vm.settings.count[type]">
                 </span>
             </div>
 
@@ -22,7 +22,7 @@
                             data-target="#"
                             href="#">
                             <div class="input-group">
-                                <input type="text" class="form-control" data-ng-model="vm.settings.date[date].value">
+                                <input type="text" class="form-control" data-ng-class="vm.settings.color" data-ng-model="vm.settings.date[date].value">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                             </div>
                         </a>
@@ -34,8 +34,9 @@
             </div>
 
             <div class="panel-body">
+                <div class="settingPadding">Color Setting</div>
                 <span class="settingPadding" data-ng-repeat="color in vm.colors">
-                    <input type="radio" data-ng-model="vm.theme" value="{{color}}">
+                    <input type="radio" data-ng-model="vm.settings.color" value="{{color}}">
                     <span class="colorPadding" data-ng-class="color"></span>
                 </span>
             </div>
@@ -58,13 +59,6 @@
         <button class="btn btn-default" data-ng-if="!vm.isShow" data-ng-click="vm.enableSetting()">
             <span class="glyphicon glyphicon-cog"></span>
             Setting
-        </button>
-    </div>
-
-    <div class="col-md-4">
-        <button class="btn btn-default" data-ng-click="vm.clean()">
-            <span class="glyphicon glyphicon-cog"></span>
-            clean
         </button>
     </div>
 </div>

@@ -5,19 +5,15 @@
 
     SettingPanelController.$inject = [
         '$localStorage',
+        'appDirect.twitterDashboard.commons.TwitterDashboardConstant',
         'appDirect.twitterDashboard.commons.TwitterDashboardService'
     ];
 
-    function SettingPanelController($localStorage, TwitterDashboardService) {
+    function SettingPanelController($localStorage, TwitterDashboardConstant, TwitterDashboardService) {
         var vm = this;
 
-        vm.colors = [
-            'orange',
-            'aliceblue',
-            'darkgray'
-        ];
+        vm.colors = TwitterDashboardConstant.BASIC_COLORS;
 
-        vm.settings = TwitterDashboardService.initializeSetting();
         vm.types = _.keys(vm.settings.count);
         vm.dates = _.keys(vm.settings.date);
 
@@ -35,6 +31,7 @@
         }
 
         function enableSetting() {
+            vm.settingBackup = angular.copy(vm.settings);
             vm.isShow = true;
         }
 
@@ -45,11 +42,8 @@
         }
 
         function cancelSetting() {
+            vm.settings = vm.settingBackup;
             vm.isShow = false;
         }
-
-        vm.clean = function() {
-            TwitterDashboardService.clean();
-        };
     }
 }());

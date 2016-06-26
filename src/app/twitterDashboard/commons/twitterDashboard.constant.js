@@ -8,6 +8,11 @@
                 'laughingsquid',
                 'techcrunch'
             ],
+            BASIC_COLORS: [
+                'orange',
+                'aliceblue',
+                'darkgray'
+            ],
             DEFAULT_COUNT: 30
         });
 })(angular);
