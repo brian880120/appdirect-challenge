@@ -5,11 +5,10 @@
 
     SettingPanelController.$inject = [
         '$localStorage',
-        'appDirect.twitterDashboard.commons.TwitterDashboardConstant',
-        'appDirect.twitterDashboard.commons.TwitterDashboardService'
+        'appDirect.twitterDashboard.commons.TwitterDashboardConstant'
     ];
 
-    function SettingPanelController($localStorage, TwitterDashboardConstant, TwitterDashboardService) {
+    function SettingPanelController($localStorage, TwitterDashboardConstant) {
         var vm = this;
 
         vm.colors = TwitterDashboardConstant.BASIC_COLORS;

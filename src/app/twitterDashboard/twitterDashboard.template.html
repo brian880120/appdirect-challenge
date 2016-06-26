@@ -1,8 +1,16 @@
+<div class="alert alert-danger" data-ng-if="vm.errorMessage">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error: </span>
+    {{vm.errorMessage}} 
+</div>
+
 <data-setting-panel data-save-setting="vm.reload()" data-settings="vm.settings"></data-setting-panel>
-<div class="row grid">
-    <div class="grid-item" data-appdirect-drag>
-        <data-twitter-card data-items="vm.twitterCards.AppDirect" data-color="{{vm.settings.color}}"></data-twitter-card>
-        <data-twitter-card data-items="vm.twitterCards.laughingsquid" data-color="{{vm.settings.color}}"></data-twitter-card>
-        <data-twitter-card data-items="vm.twitterCards.techcrunch" data-color="{{vm.settings.color}}"></data-twitter-card>
+<div class="row">
+    <div data-ng-repeat="type in vm.twitterTypes" class="grid-item" data-appdirect-drag>
+        <div>
+            <data-twitter-card data-items="vm.twitterCards[type]" data-color="{{vm.settings.color}}"></data-twitter-card>
+        </div>
     </div>
 </div>
+
+<span data-ng-if="vm.isLoading" data-us-spinner="{radius:10, width:8, length: 16, top: '30%', left: '30%'}"></span>

@@ -4,15 +4,33 @@
     angular.module('appDirect.twitterDashboard')
         .constant('appDirect.twitterDashboard.commons.TwitterDashboardConstant', {
             BASIC_TYPES: [
+                'techcrunch',
                 'AppDirect',
-                'laughingsquid',
-                'techcrunch'
+                'laughingsquid'
             ],
             BASIC_COLORS: [
                 'orange',
                 'aliceblue',
                 'darkgray'
             ],
-            DEFAULT_COUNT: 30
+            DEFAULT_SETTINGS: {
+                count: {
+                    AppDirect: 30,
+                    laughingsquid: 30,
+                    techcrunch: 30
+                },
+                color: 'orange',
+                datePreferrence: false,
+                date: {
+                    startDate: {
+                        title: 'Start Date',
+                        value: moment()
+                    },
+                    endDate: {
+                        title: 'End Date',
+                        value: moment()
+                    }
+                }
+            }
         });
 })(angular);

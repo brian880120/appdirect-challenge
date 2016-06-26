@@ -5,48 +5,42 @@
 
     TwitterDashboardController.$inject = [
         '$q',
-        '$localStorage',
-        'appDirect.twitterDashboard.commons.TwitterDashboardService',
-        'appDirect.twitterDashboard.commons.TwitterDashboardConstant'
+        'appDirect.twitterDashboard.commons.TwitterDashboardService'
     ];
 
-    function TwitterDashboardController($q, $localStorage, TwitterDashboardService, TwitterDashboardConstant) {
+    function TwitterDashboardController($q, TwitterDashboardService) {
         var vm = this;
-        vm.twitterTypes = TwitterDashboardService.getTwitterTypes();
+
+        vm.twitterTypes = TwitterDashboardService.twitterTypes;
+        vm.getTwitters = getTwitters;
+        vm.reload = reload;
 
         initialize();
 
         function initialize() {
+            vm.isLoading = true;
+            vm.errorMessage = null;
+            vm.settings = TwitterDashboardService.initializeSetting();
+            vm.getTwitters();
+        }
+
+        function getTwitters() {
             var promises = [];
             vm.twitterCards = {};
-            vm.settings = TwitterDashboardService.initializeSetting();
             _.forEach(vm.twitterTypes, function(type) {
-                promises.push(TwitterDashboardService.getTwitters(TwitterDashboardConstant.DEFAULT_COUNT, type).then(function(items) {
-                    if (vm.settings.datePreferrence) {
-                        var parsedItems = [];
-                        _.forEach(items, function(item) {
-                            var startDate = vm.settings.date.startDate.value;
-                            var endDate = vm.settings.date.endDate.value;
-                            var itemDate = TwitterDashboardService.parseDate(item.created_at);
-                            if (itemDate.isSameOrAfter(startDate) && itemDate.isSameOrBefore(endDate)) {
-                                parsedItems.push(item);
-                            }
-                        });
-                        vm.twitterCards[type] = parsedItems;
-                    } else {
-                        vm.twitterCards[type] = items;
-                    }
+                promises.push(TwitterDashboardService.getTwitters(type).then(function(items) {
+                    vm.twitterCards[type] = items;
                 }, onError));
             });
 
-            $q.all(promises).then(null, onError);
+            $q.all(promises).then(null, onError).finally(function() {
+                vm.isLoading = false;
+            });
 
             function onError() {
-                console.log('error');
+                vm.errorMessage = 'Sorry! We could initialize data. Please try again later!';
             }
         }
-
-        vm.reload = reload;
 
         function reload() {
             initialize();

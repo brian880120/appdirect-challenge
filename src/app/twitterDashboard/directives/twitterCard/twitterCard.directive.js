@@ -10,9 +10,7 @@
                 color: '@'
             },
             restrict: 'E',
-            templateUrl: 'twitterDashboard/directives/twitterCard/twitterCard.template.html',
-            controller: 'appDirect.twitterDashboard.TwitterCardController as vm',
-            bindToController: true
+            templateUrl: 'twitterDashboard/directives/twitterCard/twitterCard.template.html'
         };
     }
 

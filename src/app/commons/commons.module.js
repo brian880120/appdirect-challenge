@@ -4,6 +4,7 @@
     angular.module('appDirect.commons', [
         'ngResource',
         'ngStorage',
+        'angularSpinner',
         'ui.bootstrap.datetimepicker',
         'appDirect.commons.templates'
     ]);

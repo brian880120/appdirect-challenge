@@ -15,7 +15,6 @@
                 itemSelector: '.grid-item',
                 draggable: true
             });
-            console.log(element.children());
             _.forEach(element.children(), function(child) {
                 var draggabilly = new Draggabilly(child);
                 packery.bindDraggabillyEvents(draggabilly);
