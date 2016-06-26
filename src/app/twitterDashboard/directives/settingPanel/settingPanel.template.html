@@ -1,5 +1,5 @@
 <div class="row">
-    <div data-ng-if="vm.isShow" class="settingPadding">
+    <div data-ng-if="vm.isShow" class="setting-title">
         <div class="panel panel-default container">
             <div class="panel-body">
                 <span class="col-md-3" data-ng-repeat="type in vm.types">
@@ -9,7 +9,7 @@
             </div>
 
             <div class="panel-body">
-                <p class="settingPadding">Date Preferrence
+                <p class="setting-title">Date Preferrence
                     <i data-ng-class="{'fa fa-lock': !vm.settings.datePreferrence, 'fa fa-unlock': vm.settings.datePreferrence}"
                         data-ng-click="vm.toggleDatePreferrence()"></i>
                 </p>
@@ -34,10 +34,10 @@
             </div>
 
             <div class="panel-body">
-                <div class="settingPadding">Color Setting</div>
-                <span class="settingPadding" data-ng-repeat="color in vm.colors">
+                <div class="setting-title">Color Setting</div>
+                <span class="setting-title" data-ng-repeat="color in vm.colors">
                     <input type="radio" data-ng-model="vm.settings.color" value="{{color}}">
-                    <span class="colorPadding" data-ng-class="color"></span>
+                    <span class="color-bar" data-ng-class="color"></span>
                 </span>
             </div>
 
