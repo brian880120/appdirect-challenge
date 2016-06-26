@@ -11,7 +11,7 @@ module.exports = (function () {
     };
 
     function buildFonts () {
-        return gulp.src(['bower_components/bootstrap/fonts/*.?(eot|svg|ttf|woff|woff2|otf)', 'bower_components/font-awesome/fonts/*.?(eot|svg|ttf|woff|woff2|otf)'])
+        return gulp.src('bower_components/font-awesome/fonts/*.?(eot|svg|ttf|woff|woff2|otf)')
             .pipe($.newer('dist/fonts'))
             .pipe(gulp.dest('dist/fonts'));
     }

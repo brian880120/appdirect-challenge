@@ -2,7 +2,7 @@
     <div class="well" data-ng-class="color" data-ng-repeat="card in items">
         <div class="card-header card-header-override"">
             {{card.userName}}
-            <span data-ng-if="card.retweet">Retweeted from <a data-ng-href="{{card.retweet.link}}">{{card.retweet.userName}}</a></span>
+            <span data-ng-if="card.retweet">Retweeted from <a data-ng-href="{{card.retweet.link}}" target="_blank">{{card.retweet.userName}}</a></span>
         </div>
         <div class="card-block">
             <div class="card-title card-display">
@@ -11,7 +11,7 @@
                 </div>
                 <div>
                     <p class="card-text">{{card.createdTime}}</p>
-                    <a data-ng-href="{{card.link}}" class="card-text">Link To Twitter</a>
+                    <a data-ng-href="{{card.link}}" target="_blank" class="card-text">Link To Twitter</a>
                 </div>
             </div>
             <div class="card-content">
@@ -21,7 +21,7 @@
         <div class="card-footer text-muted" data-ng-if="card.mentions">
             Name Mentioned:
             <span data-ng-repeat="mention in card.mentions">
-                <a data-ng-href="{{mention.link}}">{{mention.userName}}</a>
+                <a data-ng-href="{{mention.link}}" target="_blank">{{mention.userName}}</a>
             </span>
         </div>
     </div>

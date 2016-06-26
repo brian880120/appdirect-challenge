@@ -23,7 +23,7 @@
                             href="#">
                             <div class="input-group">
                                 <input type="text" class="form-control" data-ng-class="vm.settings.color" data-ng-model="vm.settings.date[date].value">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </a>
                         <ul class="dropdown-menu" role="menu" data-aria-labelledby="dLabel">
@@ -46,18 +46,18 @@
 
     <div class="col-md-4" data-ng-if="vm.isShow">
         <button class="btn btn-default" data-ng-click="vm.confirmSetting()">
-            <span class="glyphicon glyphicon-ok"></span>
+            <span class="fa fa-check"></span>
             Confirm
         </button>
         <button class="btn btn-default" data-ng-click="vm.cancelSetting()">
-            <span class="glyphicon glyphicon-remove"></span>
+            <span class="fa fa-remove"></span>
             Cancel
         </button>
     </div>
 
     <div class="col-md-4">
         <button class="btn btn-default" data-ng-if="!vm.isShow" data-ng-click="vm.enableSetting()">
-            <span class="glyphicon glyphicon-cog"></span>
+            <span class="fa fa-asterisk"></span>
             Setting
         </button>
     </div>
