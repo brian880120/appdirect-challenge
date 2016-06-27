@@ -12,34 +12,15 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'bower_components/angular/angular.js',
-            'bower_components/angular/angular-*.js',
-            'bower_components/moment/moment.js',
+            'dist/libraries.js',
             'bower_components/angular-mocks/angular-mocks.js',
-            'src/app/appdirect.module.js',
             'src/app/**/*.module.js',
             'src/app/**/*.js',
             'dist/templates/templates.run.js',
             'src/tests/unit/**/*.spec.js'
         ],
 
-        // list of files to exclude
-        exclude: [
-        ],
 
-        // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-            'src/app/**/*.js': ['coverage']
-        },
-
-        proxies: {
-        },
-
-        // test results reporter to use
-        // possible values: 'dots', 'progress'
-        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'coverage', 'junit'],
 
         // web server port
         port: 9876,

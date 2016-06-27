@@ -28,9 +28,7 @@
     "gulp-watch": "^4.3.6",
     "jasmine-core": "^2.4.1",
     "karma": "^1.1.0",
-    "karma-coverage": "^1.0.0",
     "karma-jasmine": "^1.0.2",
-    "karma-junit-reporter": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.1",
     "phantomjs": "^2.1.7",
     "run-sequence": "^1.2.1"
