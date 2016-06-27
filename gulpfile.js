@@ -11,6 +11,7 @@
     var server = require('./gulp/server');
     var tasks = require('./gulp/tasks');
     var fonts = require('./gulp/fonts');
+    var test = require('./gulp/test');
 
     // =========================================================================
     // Default tasks
@@ -39,4 +40,9 @@
     gulp.task('server:watch:html:templates', server.watch.html.templates.task);
     gulp.task('server:watch:javascript:application', server.watch.javascript.application);
     gulp.task('server:watch:stylesheets:application', server.watch.stylesheets.application);
+
+    // =========================================================================
+    // Testing tasks
+    // =========================================================================
+    gulp.task('test:unit', test.unit);
 })();
