@@ -17,6 +17,8 @@
 
         this.initializeSetting = initializeSetting;
         this.getTwitters = getTwitters;
+        this.setOrder = setOrder;
+        this.getOrder = getOrder;
 
         function initializeSetting() {
             if (!$localStorage.dashboardSetting) {
@@ -52,6 +54,14 @@
             function onError() {
                 return $q.reject();
             }
+        }
+
+        function setOrder(order) {
+            $localStorage.dashboardSetting.order = order;
+        }
+
+        function getOrder() {
+            return $localStorage.dashboardSetting.order;
         }
 
         function isValidatedDate(rawDate) {

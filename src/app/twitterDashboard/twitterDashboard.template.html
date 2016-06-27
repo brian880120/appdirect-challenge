@@ -5,10 +5,19 @@
 </div>
 
 <data-setting-panel data-save-setting="vm.reload()" data-settings="vm.settings"></data-setting-panel>
+
 <div class="row">
-    <div data-ng-repeat="type in vm.twitterTypes" class="grid-item" data-appdirect-drag>
-        <div>
-            <data-twitter-card data-items="vm.twitterCards[type]" data-color="{{vm.settings.color}}"></data-twitter-card>
+    <div data-appdirect-packery="vm.packeryOptions"
+        data-on-order="vm.onOrder($order)">
+        <div class="appdirect-card-size"></div>
+        <div class="appdirect-card-gutter"></div>
+        <div id="{{vm.getIndex(type)}}"
+            class="appdirect-card"
+            data-ng-repeat="type in vm.twitterTypes"
+            data-appdirect-widget="vm.packery">
+            <div class="card-handle">
+                <data-twitter-card data-items="vm.twitterCards[type]" data-color="{{vm.settings.color}}"></data-twitter-card>
+            </div>
         </div>
     </div>
 </div>

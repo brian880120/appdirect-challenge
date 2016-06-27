@@ -32,22 +32,34 @@
     display: inline-flex;
 }
 
-.grid-item {
-    width: 100%;
-}
-
 .img {
     margin-right: 26px;
 }
 
-.grid-item:hover {
-    border-color: hsla(0, 0%, 100%, 0.5);
-    cursor: move;
-}
 
 .packery-drop-placeholder {
     outline: 3px dashed hsla(0, 0%, 0%, 0.5);
-    outline-offset: -6px;
-    -webkit-transition: -webkit-transform 0.2s;
-            transition: transform 0.2s;
+}
+
+
+@card-gutter: 10px;
+
+.appdirect-card-gutter {
+    width: @card-gutter;
+}
+
+.appdirect-card-size, .appdirect-card {
+    width: 100%;
+}
+
+.appdirect-card:hover {
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+}
+
+
+@media (min-width: 1200px) {
+    .appdirect-card-size, .appdirect-card {
+        width: calc(~"33.33333333% - "@card-gutter);
+    }
 }

@@ -6,6 +6,7 @@
         'ngStorage',
         'angularSpinner',
         'ui.bootstrap.datetimepicker',
-        'appDirect.commons.templates'
+        'appDirect.commons.templates',
+        'appDirect.commons.packery'
     ]);
 })(angular);
