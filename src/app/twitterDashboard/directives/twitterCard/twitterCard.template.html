@@ -1,6 +1,6 @@
 <div class="col-md-4">
     <div class="well" data-ng-class="color" data-ng-repeat="card in items">
-        <div class="card-header card-header-override"">
+        <div class="card-header card-header-override">
             {{card.userName}}
             <span data-ng-if="card.retweet">Retweeted from <a data-ng-href="{{card.retweet.link}}" target="_blank">{{card.retweet.userName}}</a></span>
         </div>
