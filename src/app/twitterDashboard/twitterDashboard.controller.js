@@ -38,7 +38,7 @@
             });
 
             function onError() {
-                vm.errorMessage = 'Sorry! We could initialize data. Please try again later!';
+                vm.errorMessage = 'Sorry! We could not initialize data. Please try again later!';
             }
         }
 
