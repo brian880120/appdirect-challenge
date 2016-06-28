@@ -11,8 +11,10 @@
     function SettingPanelController($localStorage, TwitterDashboardConstant) {
         var vm = this;
 
+        // color options
         vm.colors = TwitterDashboardConstant.BASIC_COLORS;
 
+        // get keys from count and date object in localStorage
         vm.types = _.keys(vm.settings.count);
         vm.dates = _.keys(vm.settings.date);
 

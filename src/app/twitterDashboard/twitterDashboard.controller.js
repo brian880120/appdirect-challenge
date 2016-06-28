@@ -13,6 +13,7 @@
 
         var unSortedTwitterTypes = TwitterDashboardService.twitterTypes;
 
+        // object for packery drag and drop options
         vm.packeryOptions = {
             columnWidth: '.appdirect-card-size',
             gutter: '.appdirect-card-gutter',
@@ -37,6 +38,7 @@
             vm.getTwitters();
         }
 
+        // request twitter for each colume from service
         function getTwitters() {
             var promises = [];
             vm.twitterCards = {};
@@ -55,6 +57,7 @@
             }
         }
 
+        // use orders from localStorage to sort twitter types in order
         function initializeLayout() {
             vm.twitterTypes = [];
             _.forEach(vm.settings.order, function(index) {
@@ -70,6 +73,7 @@
             return _.indexOf(unSortedTwitterTypes, type);
         }
 
+        // to load data again when setting is confirmed
         function reload() {
             initialize();
         }

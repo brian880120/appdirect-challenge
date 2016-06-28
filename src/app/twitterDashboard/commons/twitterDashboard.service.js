@@ -24,10 +24,12 @@
             return $localStorage.dashboardSetting;
         }
 
+        // get api resource from factory
         function getTwitters(name) {
             var count = $localStorage.dashboardSetting.count[name];
             return TwitterDashboardFactory.twitterResource(count, name).query().$promise.then(onSuccess, onError);
 
+            // parse each twitter object to the format we need
             function onSuccess(items) {
                 var parsedItems = [];
                 _.forEach(items, function(item) {
@@ -41,6 +43,8 @@
                         mentions: getMentions(item.entities.user_mentions)
                     };
 
+                    // only push parsed item to final array only if user don't enabe date preferrence or
+                    // twitter creation date is in date setting range
                     if (!$localStorage.dashboardSetting.datePreferrence || isValidatedDate(item.created_at)) {
                         parsedItems.push(parsedItem);
                     }
@@ -53,6 +57,7 @@
             }
         }
 
+        // rewrite order to localStorage whenever user change column order
         function setOrder(order) {
             $localStorage.dashboardSetting.order = order;
         }
@@ -65,6 +70,7 @@
             return itemDate.isSameOrAfter(startDate) && itemDate.isSameOrBefore(endDate);
         }
 
+        // private functions to parse original twitter object
         function parseDate(rawTime) {
             return moment(rawTime, 'dd MMM DD HH:mm:ss ZZ YYYY', 'en');
         }
