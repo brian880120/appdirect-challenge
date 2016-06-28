@@ -11,6 +11,7 @@
             <div class="panel-body">
                 <p class="setting-title">Date Preferrence
                     <i data-ng-class="{'fa fa-lock': !vm.settings.datePreferrence, 'fa fa-unlock': vm.settings.datePreferrence}"
+                        class="setting-lock"
                         data-ng-click="vm.toggleDatePreferrence()"></i>
                 </p>
                 <span class="col-md-4" data-ng-repeat="date in vm.dates" data-ng-if="vm.settings.datePreferrence">
