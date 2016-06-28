@@ -6,11 +6,10 @@
 
     PackeryDirective.$inject = [
         '$timeout',
-        'appDirect.commons.packery.PackeryService',
-        'appDirect.commons.packery.PackeriesService'
+        'appDirect.commons.packery.PackeryService'
     ];
 
-    function PackeryDirective ($timeout, PackeryService, PackeriesService) {
+    function PackeryDirective ($timeout, PackeryService) {
         return {
             restrict: 'A',
             scope: {
@@ -22,34 +21,23 @@
 
         function link (scope, element) {
             var options = scope.options || {};
-            options.handle = options.handle || '*';
             options.draggable = options.draggable ? options.draggable : false;
             $timeout(initialize);
 
             function initialize () {
-                var key = new Date().getTime();
                 var packery = new Packery(element[0], options);
 
                 if (options.draggable) {
                     packery.on('dragItemPositioned', function () {
                         var order = _.map(packery.items, 'element.id');
                         scope.onOrder({ $order: order });
+                        PackeryService.refresh(packery);
                     });
 
                     _.forEach(element.children(), function (child) {
                         PackeryService.enableDraggableElement(packery, child);
                     });
                 }
-
-                PackeriesService.add(key, packery);
-
-                scope.$emit('$packeryInitialized', {
-                    key: key,
-                    packery: packery
-                });
-                scope.$on('$destroy', function () {
-                    PackeriesService.destroy(key);
-                });
             }
         }
     }

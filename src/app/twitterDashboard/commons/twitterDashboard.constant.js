@@ -19,6 +19,7 @@
                     laughingsquid: 30,
                     techcrunch: 30
                 },
+                order: ['0', '1', '2'],
                 color: 'orange',
                 datePreferrence: false,
                 date: {

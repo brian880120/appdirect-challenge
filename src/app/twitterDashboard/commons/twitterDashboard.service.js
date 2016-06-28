@@ -12,13 +12,10 @@
     ];
 
     function TwitterDashboardService ($q, $localStorage, TwitterDashboardConstant, TwitterDashboardFactory) {
-
         this.twitterTypes = TwitterDashboardConstant.BASIC_TYPES;
-
         this.initializeSetting = initializeSetting;
         this.getTwitters = getTwitters;
         this.setOrder = setOrder;
-        this.getOrder = getOrder;
 
         function initializeSetting() {
             if (!$localStorage.dashboardSetting) {
@@ -58,10 +55,6 @@
 
         function setOrder(order) {
             $localStorage.dashboardSetting.order = order;
-        }
-
-        function getOrder() {
-            return $localStorage.dashboardSetting.order;
         }
 
         function isValidatedDate(rawDate) {

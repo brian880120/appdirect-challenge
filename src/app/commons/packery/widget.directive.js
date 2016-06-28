@@ -13,8 +13,7 @@
             restrict: 'A',
             link: link,
             scope: {
-                packery: '=appdirectWidget',
-                onRemove: '&?'
+                packery: '=appdirectWidget'
             }
         };
 
@@ -22,11 +21,6 @@
             if (!_.isEmpty(scope.packery)) {
                 PackeryService.add(scope.packery, element[0]);
             }
-
-            scope.$on('$destroy', function () {
-                PackeryService.remove(scope.packery, element[0]);
-                (scope.onRemove || angular.noop)();
-            });
         }
     }
 })(angular);

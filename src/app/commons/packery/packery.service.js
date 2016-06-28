@@ -10,18 +10,12 @@
 
     function PackeryService ($timeout) {
         this.add = add;
-        this.remove = remove;
         this.refresh = refresh;
         this.enableDraggableElement = enableDraggableElement;
 
         function add (packery, element) {
             packery.appended(element);
             enableDraggableElement(packery, element);
-            refresh(packery);
-        }
-
-        function remove (packery, element) {
-            packery.remove(element);
             refresh(packery);
         }
 

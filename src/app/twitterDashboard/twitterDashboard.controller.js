@@ -12,14 +12,7 @@
     function TwitterDashboardController($q, $scope, TwitterDashboardService) {
         var vm = this;
 
-        vm.order = TwitterDashboardService.getOrder();
-        vm.unSortedTwitterTypes = TwitterDashboardService.twitterTypes;
-        vm.twitterTypes = [];
-        _.forEach(vm.order, function(index) {
-            vm.twitterTypes.push(vm.unSortedTwitterTypes[index]);
-        });
-        vm.getTwitters = getTwitters;
-        vm.reload = reload;
+        var unSortedTwitterTypes = TwitterDashboardService.twitterTypes;
 
         vm.packeryOptions = {
             columnWidth: '.appdirect-card-size',
@@ -29,20 +22,11 @@
             draggable: true
         };
 
-        vm.packery = {};
+        vm.getTwitters = getTwitters;
+        vm.initializeLayout = initializeLayout;
         vm.onOrder =onOrder;
         vm.getIndex = getIndex;
-
-        function onOrder(order) {
-            $scope.$apply(function () {
-                vm.order = order;
-                TwitterDashboardService.setOrder(order);
-            });
-        }
-
-        function getIndex(type) {
-            return _.indexOf(vm.unSortedTwitterTypes, type);
-        }
+        vm.reload = reload;
 
         initialize();
 
@@ -50,11 +34,8 @@
             vm.isLoading = true;
             vm.errorMessage = null;
             vm.settings = TwitterDashboardService.initializeSetting();
+            vm.initializeLayout();
             vm.getTwitters();
-
-            $scope.$on('$packeryInitialized', function (event, data) {
-                vm.packery = data.packery;
-            });
         }
 
         function getTwitters() {
@@ -73,6 +54,21 @@
             function onError() {
                 vm.errorMessage = 'Sorry! We could not initialize data. Please try again later!';
             }
+        }
+
+        function initializeLayout() {;
+            vm.twitterTypes = [];
+            _.forEach(vm.settings.order, function(index) {
+                vm.twitterTypes.push(unSortedTwitterTypes[index]);
+            });
+        }
+
+        function onOrder(order) {
+            TwitterDashboardService.setOrder(order);
+        }
+
+        function getIndex(type) {
+            return _.indexOf(unSortedTwitterTypes, type);
         }
 
         function reload() {
