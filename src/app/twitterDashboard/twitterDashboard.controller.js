@@ -56,7 +56,7 @@
             }
         }
 
-        function initializeLayout() {;
+        function initializeLayout() {
             vm.twitterTypes = [];
             _.forEach(vm.settings.order, function(index) {
                 vm.twitterTypes.push(unSortedTwitterTypes[index]);
