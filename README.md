@@ -9,7 +9,9 @@ Pre-requisites: Must have Node.js and npm installed
 1. git clone the project to local
 
 On root path of appdirect-challenge, run following commands:
+
 1. npm install bower -g
+2. npm install gulp -g
 2. npm install gulp -g
 3. npm install
 4. bower install
