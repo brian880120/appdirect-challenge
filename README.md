@@ -12,7 +12,6 @@ On root path of appdirect-challenge, run following commands:
 
 1. npm install bower -g
 2. npm install gulp -g
-2. npm install gulp -g
 3. npm install
 4. bower install
 5. gulp
