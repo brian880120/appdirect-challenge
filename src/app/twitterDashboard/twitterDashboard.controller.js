@@ -5,11 +5,10 @@
 
     TwitterDashboardController.$inject = [
         '$q',
-        '$scope',
         'appDirect.twitterDashboard.commons.TwitterDashboardService'
     ];
 
-    function TwitterDashboardController($q, $scope, TwitterDashboardService) {
+    function TwitterDashboardController($q, TwitterDashboardService) {
         var vm = this;
 
         var unSortedTwitterTypes = TwitterDashboardService.twitterTypes;
