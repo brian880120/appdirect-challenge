@@ -17,6 +17,6 @@ On root path of appdirect-challenge, run following commands:
 5. gulp
 6. run localhost:3000 on browser
 
-command to run the unit test (need to run gulp first):
+command to run the unit test (need to run gulp to have a build first):
 
 gulp test:unit
