@@ -15,6 +15,7 @@ On root path of appdirect-challenge, run following commands:
 3. npm install
 4. bower install
 5. gulp
+6. run localhost:3000 on browser
 
-command to run the unit test: 
+command to run the unit test (need to run gulp first):
 gulp test:unit
