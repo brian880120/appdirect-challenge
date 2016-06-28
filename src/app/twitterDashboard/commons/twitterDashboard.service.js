@@ -17,6 +17,7 @@
         this.getTwitters = getTwitters;
         this.setOrder = setOrder;
 
+        // get localStorage dashboardSetting, set to default object if doesn't exist
         function initializeSetting() {
             if (!$localStorage.dashboardSetting) {
                 $localStorage.dashboardSetting = TwitterDashboardConstant.DEFAULT_SETTINGS;
