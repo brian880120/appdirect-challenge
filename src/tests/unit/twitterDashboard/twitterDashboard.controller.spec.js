@@ -53,12 +53,16 @@ describe('twitterDashboard/twitterDashboard.controller.spec.js', function() {
         expect(controller.errorMessage).toBe('Sorry! We could not initialize data. Please try again later!'); 
     });
 
+    it('should initialize twitter types', function() {
+        controller.settings.order = ['1', '0', '2'];
+        controller.initializeLayout();
+        expect(controller.twitterTypes).toEqual(['AppDirect', 'techcrunch', 'laughingsquid']);
+    });
+
     it('should call reload', function() {
         controller.reload();
         expect(controller.isLoading).toBeTruthy();
         expect(controller.errorMessage).toBeNull();
         expect(TwitterDashboardService.initializeSetting).toHaveBeenCalled();
-        expect(controller.settings).toEqual({data: 'test'});
-        expect(TwitterDashboardService.getTwitters).toHaveBeenCalled();
     });
 });
